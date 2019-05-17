@@ -20,10 +20,12 @@ class Song
       song
    end
 
-   def self.create_by_name(name) 
-      song = self.new 
-      song.name = name 
-      @@all << song 
+   def self.create_by_name(name) # create allows us to separate creating and saving information to the database which allows for validation etc. to occur before adding information to our db.
+      song = self.new # creates an instance of the song (song is an arbitrary word until set = to a value.) self.new is a class version of the initrialization which creates the instance without any inputted information.
+      song.name = name # song.name creates an attribute inside the object and inserts some provided information
+      # song.genre = genre could be added if provided as an argument.
+      # song.year = year
+      @@all << song # pushes song to the array which stores all of the class information (song is now equal to the instance)
       song
    end
    
@@ -71,9 +73,11 @@ class Song
    end
 
   def save
-    self.class.all << self 
+    self.class.all << self # this is @@all << self
   end
 
 end
 
+
+# self.class == this_new_song.class == Song
 
